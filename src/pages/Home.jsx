@@ -40,7 +40,7 @@ export default function Home({ onLogout, onNavigate, balance, cards }) {
       <main className="px-6 mt-4 space-y-6">
         {/* Общий баланс */}
         <div className="text-center">
-          <p className="text-sm text-gray-500 mb-1">Общий баланс</p>
+          <p className="text-sm text-gray-500 mb-1">Баланс</p>
           <h2 className="text-4xl font-extrabold text-gray-900 tracking-tight">
             {formatMoney(balance)}
           </h2>

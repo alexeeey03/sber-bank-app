@@ -5,22 +5,16 @@ import Home from './pages/Home';
 import History from './pages/History';
 import Transfers from './pages/Transfers';
 import Profile from './pages/Profile';
-import SplashScreen from './components/SplashScreen'; // Импорт заставки
+import SplashScreen from './components/SplashScreen';
 import { userData, cards as initialCards } from './data';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isScanning, setIsScanning] = useState(false);
   const [activeTab, setActiveTab] = useState('home');
-  
-  // Состояние для заставки (по умолчанию true)
   const [showSplash, setShowSplash] = useState(true);
-
-  // Состояния для баланса и карт
   const [balance, setBalance] = useState(userData.balance);
   const [cards, setCards] = useState(initialCards);
-
-  // Глобальное уведомление (Push)
   const [toast, setToast] = useState(null);
 
   const handleInternalTransfer = (fromId, toId, amount) => {
@@ -36,24 +30,35 @@ function App() {
     setTimeout(() => setToast(null), 3000);
   };
 
+  // Обычный перевод (списание с карты) с учетом комиссии для кредитной карты
   const handleTransfer = (fromId, amount) => {
+    const fromCard = cards.find(c => c.id === fromId);
+    // Если карта кредитная (id: 2), берем комиссию 1.5%
+    const commission = fromCard?.id === 2 ? amount * 0.015 : 0;
+    const totalAmount = amount + commission;
+
     setCards(prevCards => 
       prevCards.map(card => 
-        card.id === fromId ? { ...card, balance: card.balance - amount } : card
+        card.id === fromId ? { ...card, balance: card.balance - totalAmount } : card
       )
     );
-    setBalance(prev => prev - amount);
     
-    setToast(`Перевод на сумму ${new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(amount)} выполнен!`);
+    // Уменьшаем общий баланс на сумму + комиссию
+    setBalance(prev => prev - totalAmount);
+    
+    // Показываем уведомление
+    const commissionText = commission > 0 
+      ? ` (включая комиссию ${new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(commission)})` 
+      : '';
+      
+    setToast(`Перевод на сумму ${new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(amount)} выполнен${commissionText}!`);
     setTimeout(() => setToast(null), 3000);
   };
 
-  // 1. Показываем заставку
   if (showSplash) {
     return <SplashScreen onFinish={() => setShowSplash(false)} />;
   }
 
-  // 2. Проверка Face ID
   if (isScanning) {
     return <FaceID onSuccess={() => {
       setIsScanning(false);
@@ -61,7 +66,6 @@ function App() {
     }} />;
   }
 
-  // 3. Экран входа
   if (!isLoggedIn) {
     return (
       <Login 
@@ -71,7 +75,6 @@ function App() {
     );
   }
 
-  // 4. Основное приложение
   const renderScreen = () => {
     switch (activeTab) {
       case 'home': 
@@ -123,7 +126,6 @@ function App() {
         </div>
       </nav>
 
-      {/* Глобальное уведомление (Toast) */}
       {toast && (
         <div className="fixed top-6 left-4 right-4 z-[100] animate-slide-down">
           <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-4 flex items-center space-x-3">

@@ -1,6 +1,6 @@
 export const userData = {
   name: 'Алексей',
-  balance: 110786.61,
+  balance: 718.22,
 };
 
 export const cards = [
@@ -20,7 +20,7 @@ export const cards = [
     // Новые данные для кредитки
     creditLimit: 180000.00,
     minPayment: 4298.11,
-    paymentDate: '31 октября',
+    paymentDate: '30 ноября ',
     gracePeriod: '-',
   }
 ];
@@ -68,8 +68,8 @@ export const transactions = [
 ];
 export const documentsData = {
   passport: {
-    series: '40 23',
-    number: '464 208',
+    series: '4023',
+    number: '464208',
     issuedBy: 'ГУ МВД РОССИИ ПО Г. САНКТ-ПЕТЕРБУРГУ И ЛЕНИНГРАДСКОЙ ОБЛАСТИ',
     issuedDate: '21.03.2023',
     code: '780-036'

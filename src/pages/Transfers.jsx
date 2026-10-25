@@ -27,10 +27,14 @@ export default function Transfers({ onTransfer, onInternalTransfer, cards }) {
 
     // Ищем карту списания
     const fromCard = cards.find(c => c.id === Number(fromCardId));
+    
+    // Считаем комиссию (1.5% для кредитной карты)
+    const commission = fromCard.id === 2 ? numAmount * 0.015 : 0;
+    const totalAmount = numAmount + commission;
 
-    // Проверка на отрицательный баланс
-    if (fromCard.balance < numAmount) {
-      setError('Недостаточно средств на выбранной карте');
+    // Проверка на отрицательный баланс (с учетом комиссии)
+    if (fromCard.balance < totalAmount) {
+      setError(`Недостаточно средств (нужно ${formatMoney(totalAmount)} с учетом комиссии)`);
       return;
     }
 
@@ -51,6 +55,10 @@ export default function Transfers({ onTransfer, onInternalTransfer, cards }) {
     setToPhone('');
     setTimeout(() => setIsSuccess(false), 3000);
   };
+
+  // Проверяем, выбрана ли кредитная карта для отображения блока комиссии
+  const selectedFromCard = cards.find(c => c.id === Number(fromCardId));
+  const showCommission = selectedFromCard?.id === 2 && amount > 0;
 
   return (
     <div className="p-6 pt-14 min-h-screen relative">
@@ -169,6 +177,15 @@ export default function Transfers({ onTransfer, onInternalTransfer, cards }) {
               error ? 'ring-2 ring-red-500' : 'focus:ring-[#0a7d3b]'
             }`}
           />
+          
+          {/* Блок с комиссией */}
+          {showCommission && (
+            <div className="bg-yellow-50 text-yellow-700 text-sm p-3 rounded-xl mt-3 flex justify-between">
+              <span>Комиссия за перевод (1.5%)</span>
+              <span className="font-bold">{formatMoney(Number(amount) * 0.015)}</span>
+            </div>
+          )}
+
           {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
         </div>
 

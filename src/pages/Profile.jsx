@@ -49,7 +49,7 @@ export default function Profile({ onLogout }) {
         </div>
         <div>
           <h2 className="text-xl font-bold text-gray-800">{userData.name}</h2>
-          <p className="text-gray-500">+7 (999) 123-45-67</p>
+          <p className="text-gray-500">+7 (987) 485-55-29</p>
           
         </div>
       </div>
@@ -106,7 +106,7 @@ export default function Profile({ onLogout }) {
         Выйти из аккаунта
       </button>
 
-      <p className="text-center text-xs text-gray-400 mt-8">Версия 1.0.0</p>
+      <p className="text-center text-xs text-gray-400 mt-8">Версия 2.21.4</p>
 
       {/* Модалка документа */}
       {selectedDoc && (
