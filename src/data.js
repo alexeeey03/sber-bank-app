@@ -7,66 +7,71 @@ export const cards = [
   {
     id: 1,
     type: 'Дебетовая карта',
-    number: '**** **** **** 4521',
-    balance: 84350.00,
+    number: '**** **** **** 2080',
+    balance: 718.22,
     gradient: 'from-[#0a7d3b] to-[#0f9a4a]',
   },
   {
     id: 2,
     type: 'Кредитная карта',
-    number: '**** **** **** 8890',
-    balance: 40000.00,
+    number: '**** **** **** 4562',
+    balance: 110068.39,
     gradient: 'from-gray-700 to-gray-900',
     // Новые данные для кредитки
-    creditLimit: 100000.00,
-    minPayment: 2000.00,
-    paymentDate: '25 октября',
+    creditLimit: 180000.00,
+    minPayment: 4298.11,
+    paymentDate: '31 октября',
     gracePeriod: '120 дней',
   }
 ];
 
 export const transactions = [
   // --- ОКТЯБРЬ 2026 ---
-  { id: 1, title: 'Пятёрочка', date: '2026-10-24', time: '14:22', category: 'Супермаркеты', amount: -1240 },
-  { id: 2, title: 'Кофейня "Шоколадница"', date: '2026-10-24', time: '09:15', category: 'Кафе', amount: -350 },
-  { id: 3, title: 'Перевод от Марии', date: '2026-10-23', time: '18:45', category: 'Переводы', amount: 1500 },
-  { id: 4, title: 'Яндекс.Музыка', date: '2026-10-22', time: '12:00', category: 'Подписки', amount: -299 },
-  { id: 5, title: 'Аптека', date: '2026-10-20', time: '19:30', category: 'Здоровье', amount: -850 },
-  { id: 6, title: 'Зарплата', date: '2026-10-10', time: '10:05', category: 'Пополнение', amount: 85000 },
-  { id: 7, title: 'ВкусВилл', date: '2026-10-08', time: '20:10', category: 'Супермаркеты', amount: -2300 },
-  { id: 8, title: 'Такси', date: '2026-10-05', time: '23:45', category: 'Транспорт', amount: -450 },
-  { id: 9, title: 'Оплата ЖКХ', date: '2026-10-01', time: '08:30', category: 'Услуги', amount: -5400 },
+  { id: 1, title: 'Алексей Сергеевич Б.', date: '2026-10-24', time: '20:19', category: 'Пополнение', amount: 59700 },
+  { id: 2, title: 'Алексей Сергеевич Б.', date: '2026-10-24', time: '20:19', category: 'Пополнение', amount: 59700 },
+  { id: 3, title: 'Ксения Андреевна Л.', date: '2026-10-22', time: '13:28', category: 'Пополнение', amount: 5000 },
+  { id: 4, title: 'Яндекс.Музыка', date: '2026-10-22', time: '12:00', category: 'Подписки', amount: -499 },
+  { id: 5, title: 'Алексей Сергеевич Б.', date: '2026-10-22', time: '15.32', category: 'Переводы', amount: -9500 },
+  { id: 6, title: 'Юлия Александровна Б.', date: '2026-10-21', time: '10:02', category: 'Пополнение', amount: 2300 },
+  { id: 7, title: 'Юлия Александровна Б.', date: '2026-10-15', time: '1435', category: 'Пополнение', amount: 7000 },
+  { id: 8, title: 'Алексей Сергеевич Б.', date: '2026-10-10', time: '00:38', category: 'Переводы', amount: -59000 },
+  { id: 9, title: 'Розалия Зульфановна Н.', date: '2026-10-10', time: '00:34', category: 'Пополнение', amount: 30000 },
+  { id: 10, title: 'Анна Сергеевна Д.', date: '2026-10-09', time: '18:41', category: 'Пополнение', amount: 29000 },
 
   // --- СЕНТЯБРЬ 2026 ---
-  { id: 10, title: 'Зарплата', date: '2026-09-10', time: '10:00', category: 'Пополнение', amount: 85000 },
-  { id: 11, title: 'Перекрёсток', date: '2026-09-28', time: '19:15', category: 'Супермаркеты', amount: -3100 },
-  { id: 12, title: 'Кино', date: '2026-09-25', time: '21:00', category: 'Развлечения', amount: -1200 },
-  { id: 13, title: 'Перевод другу', date: '2026-09-22', time: '15:20', category: 'Переводы', amount: -5000 },
-  { id: 14, title: 'Wildberries', date: '2026-09-18', time: '13:40', category: 'Покупки', amount: -6500 },
-  { id: 15, title: 'Штраф ГИБДД', date: '2026-09-15', time: '11:10', category: 'Транспорт', amount: -500 },
-  { id: 16, title: 'Кофейня', date: '2026-09-12', time: '08:50', category: 'Кафе', amount: -320 },
-  { id: 17, title: 'МТС (связь)', date: '2026-09-05', time: '14:00', category: 'Услуги', amount: -800 },
-  { id: 18, title: 'Ашан', date: '2026-09-02', time: '18:30', category: 'Супермаркеты', amount: -4500 },
+  { id: 11, title: 'Playerok_Астана KZ', date: '2026-09-26', time: '23:02', category: 'Услуги', amount: -3160.98 },
+  { id: 12, title: 'Юлия Александровна Б.', date: '2026-09-26', time: '23:00', category: 'Пополнение', amount: 4000 },
+  { id: 13, title: 'Алексей Сергеевич Б.', date: '2026-09-24', time: '17:15', category: 'Переводы', amount: -50000 },
+  { id: 14, title: 'Юлия Александровна Б.', date: '2026-09-24', time: '16:50', category: 'Пополнение', amount: 50000 },
+  { id: 15, title: 'Playerok_Астана KZ', date: '2026-09-17', time: '17:56', category: 'Услуги', amount: -3160.98 },
+  { id: 16, title: 'Юлия Александровна Б.', date: '2026-09-17', time: '17:29', category: 'Пополнение', amount: 3000 },
+  { id: 17, title: 'Юлия Александровна Б.', date: '2026-09-13', time: '12:27', category: 'Пополнение', amount: 1000 },
+  { id: 18, title: 'Алексей Сергеевич Б.', date: '2026-09-12', time: '17:15', category: 'Переводы', amount: -2500 },
+  { id: 19, title: 'Юлия Александровна Б.', date: '2026-09-11', time: '15:34', category: 'Пополнение', amount: 2000 },
+  { id: 20, title: 'Pyaterochka 25682 SPB Rus', date: '2026-09-09', time: '18:17', category: 'Супермаркеты', amount: -721.68 },
+  { id: 21, title: 'Алексей Сергеевич Б.', date: '2026-09-05', time: '21:13', category: 'Переводы', amount: -49000 },
+  { id: 22, title: 'Анна Сергеевна Д.', date: '2026-09-05', time: '20:22', category: 'Пополнение', amount: 29000 },
+  { id: 23, title: 'Розалия Зульфановна Н.', date: '2026-09-03', time: '15:30', category: 'Пополнение', amount: 20000 },
+
+  
 
   // --- АВГУСТ 2026 ---
-  { id: 19, title: 'Зарплата', date: '2026-08-10', time: '10:00', category: 'Пополнение', amount: 85000 },
-  { id: 20, title: 'Отель в Сочи', date: '2026-08-20', time: '16:45', category: 'Путешествия', amount: -25000 },
-  { id: 21, title: 'Авиабилеты', date: '2026-08-18', time: '12:30', category: 'Путешествия', amount: -18000 },
-  { id: 22, title: 'Такси в аэропорт', date: '2026-08-18', time: '05:00', category: 'Транспорт', amount: -1500 },
-  { id: 23, title: 'Пятёрочка', date: '2026-08-15', time: '19:00', category: 'Супермаркеты', amount: -1800 },
-  { id: 24, title: 'Перевод от брата', date: '2026-08-12', time: '14:15', category: 'Переводы', amount: 3000 },
-  { id: 25, title: 'Netflix', date: '2026-08-05', time: '10:00', category: 'Подписки', amount: -1200 },
-  { id: 26, title: 'Кофейня', date: '2026-08-03', time: '09:30', category: 'Кафе', amount: -400 },
-  { id: 27, title: 'Оплата ЖКХ', date: '2026-08-01', time: '08:00', category: 'Услуги', amount: -5200 },
+   { id: 24, title: 'Юлия Александровна Б.', date: '2026-08-28', time: '21:50', category: 'Пополнение', amount: 10000 },
+   { id: 25, title: 'Алексей Сергеевич Б.', date: '2026-09-23', time: '23:56', category: 'Переводы', amount: -1500 },
+   { id: 26, title: 'Юлия Александровна Б.', date: '2026-08-22', time: '22:39', category: 'Пополнение', amount: 1500 },
+   { id: 27, title: 'Перекрёсток', date: '2026-08-18', time: '08:25', category: 'Супермаркеты', amount: -339.97 },
+   { id: 28, title: 'Алексей Сергеевич Б.', date: '2026-08-16', time: '20:05', category: 'Переводы', amount: -6500 },
+   { id: 29, title: 'Юлия Александровна Б.', date: '2026-08-16', time: '19:59', category: 'Пополнение', amount: 7000 },
+  
 ];
 export const documentsData = {
   passport: {
-    series: '45 12',
-    number: '123456',
-    issuedBy: 'ОВД Тверского района г. Москвы',
-    issuedDate: '15.06.2015',
-    code: '770-001'
+    series: '40 23',
+    number: '464 208',
+    issuedBy: 'ГУ МВД РОССИИ ПО Г. САНКТ-ПЕТЕРБУРГУ И ЛЕНИНГРАДСКОЙ ОБЛАСТИ',
+    issuedDate: '21.03.2023',
+    code: '780-036'
   },
-  snils: '123-456-789 00',
-  inn: '771234567890'
+  snils: '174-882-602 07',
+  inn: '026616615894'
 };
