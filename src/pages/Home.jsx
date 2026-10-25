@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { userData, transactions } from '../data';
 import CardModal from '../components/CardModal';
 import PaymentsModal from '../components/PaymentsModal';
+import StatsModal from '../components/StatsModal';
 
 export default function Home({ onLogout, onNavigate, balance, cards }) {
   const [selectedCard, setSelectedCard] = useState(null);
   const [isPaymentsOpen, setIsPaymentsOpen] = useState(false);
+  const [isStatsOpen, setIsStatsOpen] = useState(false);
   
   // Состояние для отслеживания скролла
   const [scrollY, setScrollY] = useState(0);
@@ -131,7 +133,22 @@ export default function Home({ onLogout, onNavigate, balance, cards }) {
             </div>
           ))}
         </div>
-
+{/* Блок расходов */}
+        <div 
+          onClick={() => setIsStatsOpen(true)}
+          className="bg-white rounded-3xl p-5 shadow-sm cursor-pointer active:scale-[0.98] transition-transform"
+        >
+          <div className="flex justify-between items-center mb-2">
+            <h3 className="font-bold text-gray-800">Расходы за месяц</h3>
+            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </div>
+          <div className="flex items-baseline space-x-2">
+            <p className="text-2xl font-extrabold text-gray-900">
+              {formatMoney(transactions.filter(tx => tx.date.startsWith('2026-10') && tx.amount < 0).reduce((sum, tx) => sum + Math.abs(tx.amount), 0))}
+            </p>
+            <span className="text-sm text-gray-500">в октябре</span>
+          </div>
+        </div>
         {/* Последние операции */}
         <div className="bg-white rounded-3xl p-5 shadow-sm mb-6">
           <div className="flex justify-between items-center mb-4">
@@ -168,6 +185,10 @@ export default function Home({ onLogout, onNavigate, balance, cards }) {
       {/* Модальное окно оплаты услуг */}
       {isPaymentsOpen && (
         <PaymentsModal onClose={() => setIsPaymentsOpen(false)} />
+      )}
+      {/* Модальное окно статистики */}
+      {isStatsOpen && (
+        <StatsModal onClose={() => setIsStatsOpen(false)} />
       )}
     </div>
   );
