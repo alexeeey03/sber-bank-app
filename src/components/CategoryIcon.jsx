@@ -27,6 +27,13 @@ export default function CategoryIcon({ category, className = "w-6 h-6" }) {
           </svg>
         );
       case 'Переводы':
+        case 'Перевод между счетами':
+        return (
+          <svg className={className} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            {/* Две стрелки, символизирующие перевод между картами */}
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+          </svg>
+        );
       case 'Пополнение':
         return (
           <svg className={className} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">

@@ -49,7 +49,7 @@ export default function History() {
         <h1 className="text-2xl font-bold text-gray-800 mb-4">История операций</h1>
         
         <div className="flex space-x-2 overflow-x-auto hide-scrollbar pb-2">
-          {['Все', 'Переводы', 'Покупки', 'Супермаркеты', 'Кафе'].map(f => (
+          {['Все', 'Переводы', 'Перевод между счетами', 'Покупки', 'Супермаркеты'].map(f => (
             <button
               key={f}
               onClick={() => setFilter(f)}
