@@ -178,7 +178,7 @@ export function openReceipt(tx) {
             <path d="M 38 28 A 3 3 0 0 0 35 25 L 30 25 A 8 8 0 0 0 22 33 L 22 67 A 8 8 0 0 0 30 75 L 35 75 A 3 3 0 0 0 38 72 Z" fill="#0a7d3b" />
           </svg>
           <div class="header-text">
-            <div class="logo">СБЕР БАНК</div>
+            <div class="logo">СБЕРБАНК</div>
             <div class="subtitle">Электронная квитанция</div>
           </div>
         </div>
