@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { userData, transactions } from '../data';
 import CardModal from '../components/CardModal';
 import PaymentsModal from '../components/PaymentsModal';
@@ -6,6 +6,18 @@ import PaymentsModal from '../components/PaymentsModal';
 export default function Home({ onLogout, onNavigate, balance, cards }) {
   const [selectedCard, setSelectedCard] = useState(null);
   const [isPaymentsOpen, setIsPaymentsOpen] = useState(false);
+  
+  // Состояние для отслеживания скролла
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const formatMoney = (amount) => {
     return new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(amount);
@@ -21,8 +33,12 @@ export default function Home({ onLogout, onNavigate, balance, cards }) {
 
   return (
     <div className="min-h-screen bg-[#f2f4f7] pb-24">
-      {/* Шапка */}
-      <header className="px-6 pt-14 pb-4 flex justify-between items-center bg-white/80 backdrop-blur-md sticky top-0 z-10">
+      {/* Шапка (исчезает при скролле вниз) */}
+      <header 
+        className={`px-6 pt-14 pb-4 flex justify-between items-center bg-white/80 backdrop-blur-md sticky top-0 z-10 transition-all duration-300 ${
+          scrollY > 50 ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'
+        }`}
+      >
         <div>
           <p className="text-sm text-gray-500">{getGreeting()}</p>
           <h1 className="text-xl font-bold text-gray-800">{userData.name}</h1>
@@ -40,7 +56,7 @@ export default function Home({ onLogout, onNavigate, balance, cards }) {
       <main className="px-6 mt-4 space-y-6">
         {/* Общий баланс */}
         <div className="text-center">
-          <p className="text-sm text-gray-500 mb-1">Баланс</p>
+          <p className="text-sm text-gray-500 mb-1">Общий баланс</p>
           <h2 className="text-4xl font-extrabold text-gray-900 tracking-tight">
             {formatMoney(balance)}
           </h2>
@@ -106,7 +122,7 @@ export default function Home({ onLogout, onNavigate, balance, cards }) {
                 <div className="flex flex-col items-end">
                   <p className="text-[10px] uppercase opacity-70 mb-1">Срок действия</p>
                   <div className="flex space-x-3 items-center">
-                    <p className="text-sm font-medium">12/28</p>
+                    <p className="text-sm font-medium">{card.expiry}</p>
                     {/* Логотип МИР */}
                     <span className="text-lg font-bold italic tracking-tighter">МИР</span>
                   </div>

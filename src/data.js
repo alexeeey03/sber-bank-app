@@ -10,6 +10,7 @@ export const cards = [
     number: '**** **** **** 2080',
     balance: 718.22,
     gradient: 'from-[#0a7d3b] to-[#0f9a4a]',
+    expiry: '07/36', // <-- Добавили
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ export const cards = [
     minPayment: 4298.11,
     paymentDate: '30 ноября ',
     gracePeriod: '-',
+     expiry: '06/28', // <-- Добавили
   }
 ];
 
