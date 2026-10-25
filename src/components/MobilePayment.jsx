@@ -7,10 +7,10 @@ export default function MobilePayment({ onBack }) {
 
   // Тестовая контактная книга
   const contacts = [
-    { id: 1, name: 'Мама', phone: '+7 (999) 111-22-33' },
-    { id: 2, name: 'Мария', phone: '+7 (999) 444-55-66' },
-    { id: 3, name: 'Брат', phone: '+7 (999) 777-88-99' },
-    { id: 4, name: 'Работа', phone: '+7 (495) 123-45-67' },
+    { id: 1, name: 'Мама', phone: '+7 (987) 020-52-27' },
+    { id: 2, name: 'Славик', phone: '+7 (921) 399-63-68' },
+    { id: 3, name: 'Мухаммад', phone: '+7 (981) 119-32-92' },
+    
   ];
 
   const handlePay = (e) => {
